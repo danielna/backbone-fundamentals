@@ -18,7 +18,7 @@ app.AppView = Backbone.View.extend({
     },
 
     // at init bind relevant events to Todos collection, when items are added/changed
-    initilize: function() {
+    initialize: function() {
         this.allCheckbox = this.$("#toggle-all")[0];
         this.$input = this.$("#new-todo");
         this.$footer = this.$("#footer");
@@ -90,7 +90,7 @@ app.AppView = Backbone.View.extend({
     // generate the attributes for a new Todo item
     newAttributes: function() {
         return {
-            title: this.$intput.val().trim(),
+            title: this.$input.val().trim(),
             order: app.Todos.nextOrder(),
             completed: false
         };
