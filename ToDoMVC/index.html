@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>hello WORLD</h1>
+
+<div id="todo">
+    <input type='checkbox' />
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="http://documentcloud.github.com/underscore/underscore-min.js"></script>
+<script src="http://documentcloud.github.com/backbone/backbone-min.js"></script>
+<script>
+  
+// Let's imagine we would like a specific fragment (edit) once a user opens a single todo
+var TodoRouter = Backbone.Router.extend({
+  routes: {
+    "todo/:id": "viewTodo",
+    "todo/:id/edit": "editTodo"
+    // ... other routes
+  },
+
+  viewTodo: function(id){
+    console.log("View todo requested.");
+    this.navigate("todo/" + id + '/edit'); // updates the fragment for us, but doesn't trigger the route
+  },
+
+  editTodo: function(id) {
+    console.log("Edit todo opened.");
+  }
+});
+
+var myTodoRouter = new TodoRouter();
+
+Backbone.history.start();
+
+// Go to: http://localhost/#todo/4
+//
+// URL is updated to: http://localhost/#todo/4/edit
+// but editTodo() function is not invoked even though location we end up is mapped to it.
+//
+// logs: View todo requested.
+
+
+</script>
+</body>
+</html>
