@@ -15,9 +15,6 @@ var TodoList = Backbone.Collection.extend({
     // /api/todos/:id  DELETE       Delete the todo with id of :id
     url: "/api/todos/",
 
-    // // save in localStorage to specific namespace
-    // localStorage: new Backbone.LocalStorage("todos-backbone"),
-
     completed: function() {
         return this.filter(function(todo) {
             return todo.get('completed');

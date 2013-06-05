@@ -6,6 +6,8 @@ app.Todo = Backbone.Model.extend({
         completed: false
     },
 
+    idAttribute: "_id",
+
     // toggle the completed state of this todo item.
     // so switch the property
     toggle: function() {
