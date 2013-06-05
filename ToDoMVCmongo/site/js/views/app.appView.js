@@ -33,7 +33,7 @@ app.AppView = Backbone.View.extend({
         this.listenTo(app.Todos, "filter", this.filterAll);
         this.listenTo(app.Todos, "all", this.render);
 
-        app.Todos.fetch();
+        app.Todos.fetch({reset: true});
     },
 
     // re-rendering the app just means refreshing the statistics;
